@@ -26,13 +26,13 @@ Xshell登录腾讯云实例
 
 ![](../image/4.png)
 
-#### *2.*创建*GitHub项目并在本地同步
+## 创建GitHub项目并在本地同步
 
 注册Github账号
 
 ![](../image/5.jpg)
 
-### 二、在GitHub上创建云计算项目（CloudComputing）并在 本地同步
+## 二、在GitHub上创建云计算项目（CloudComputing）并在 本地同步
 
   创建新的ssh key
 
