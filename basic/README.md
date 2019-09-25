@@ -18,45 +18,45 @@ Xshell登录腾讯云实例
 
 
 
-![](D:/yun/image/2.png)
+![](../image/2.png)
 
 （2）下载安装Xshell（包含在Xmanager中），并使用 Xshell登录腾讯云实例
 
-![](D:/yun/image/3.png)
+![](../image/3.png)
 
-![](D:/yun/image/4.png)
+![](../image/4.png)
 
 #### *2.*创建*GitHub项目并在本地同步
 
 注册Github账号
 
-![](D:/yun/image/5.jpg)
+![](../image/5.jpg)
 
 ### 二、在GitHub上创建云计算项目（CloudComputing）并在 本地同步
 
   创建新的ssh key
 
-![](D:/yun/image/7.png)
+![](../image/7.png)
 
-![](D:/yun/image/6.png)
+![](../image/6.png)
 
 复制“id_rsa.pub”的内容到GitHub网站的Settings–>SSH and GPG keys中
 
-![](D:/yun/image/8.png)
+![](../image/8.png)
 
 测试SSH Key是否配置成功
 
-![](D:/yun/image/9.png)
+![](../image/9.png)
 
 创建新的代码仓库
 
-![](D:/yun/image/16.png)
+![](../image/16.png)
 
 配置用户名和邮箱
 
-![](D:/yun/image/10.png)
+![](../image/10.png)
 
-![](D:/yun/image/11.png)
+![](../image/11.png)
 
 1.初始化本地文件夹作为一个Git仓库：
 
@@ -74,20 +74,20 @@ Xshell登录腾讯云实例
 
 8.推送本地更新至远程服务
 
-![](D:/yun/image/15.png)
+![](../image/15.png)
 
-![](D:/yun/image/12.png)
+![](../image/12.png)
 
-![](D:/yun/image/13.png)
+![](../image/13.png)
 
-![](D:/yun/image/14.png)
+![](../image/14.png)
 
 ### 三、本地安装VMware Workstation和CentOS操作系统
 
 安装VMware WorkStation
 
-![](D:/yun/image/17.png)
+![](../image/17.png)
 
 安装CentOs
 
-![](D:/yun/image/18.png)
+![](../image/18.png)
