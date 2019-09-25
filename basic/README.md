@@ -14,7 +14,7 @@ Xshell登录腾讯云实例
 
 （1）腾讯云服务器
 
-![](D:/yun/image/1.png)
+![](../image/1.png)
 
 
 
