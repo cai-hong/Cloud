@@ -126,7 +126,7 @@ docker exec -it 9843 /bin/bash
 
 ![1](../image1/17.jpg)
 
-测试Apache服务器是否成功运行，找到腾讯云实例的公有IP地址(your_cvm_ip)，在你本地主机的浏览器上输入：49.235.253.253.8888
+测试Apache服务器是否成功运行，找到腾讯云实例的公有IP地址(your_cvm_ip)，在你本地主机的浏览器上输入：49.235.253.253：8888
 
 ![1](../image1/18.jpg)
 
@@ -150,8 +150,8 @@ mysql_secure_installation
 
 **PHP 7.x包在许多仓库中都包含，这里我们使用Remi仓库，而Remi仓库依赖于EPEL仓库，因此首先启用这两个仓库**
 
-sudo yum install epel-release yum-utils
-sudo yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+ yum install epel-release yum-utils
+ yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 
 ![1](../image1/21.jpg)
 
@@ -227,7 +227,7 @@ yum install php-fpm php-gd
 
 解压之后在主目录下产生一个wordpress文件夹。我们将该文件夹下的内容同步到Apache服务器的根目录下，使得wordpress的内容能够被访问。这里使用rsync命令：
 
-**sudo rsync -avP ~/wordpress/ /var/www/html/**
+ rsync -avP /wordpress/ /var/www/html/**
 
 ![1](../image1/31.png)
 
@@ -368,5 +368,91 @@ docker commit -a "Docker用户名" -m "提交描述" 容器id 镜像名:tag标�
 
 ![1](../image1/43.png)
 
-##### （2）MySQL
+##### （2）php
+
+ 在mydocker中创建php目录：**mkdir /php**
+
+**1.构建Dockerfile**
+
+![1](../image1/49.png)
+
+**2.生成docker镜像**
+
+![1](../image1/50.png)
+
+**3.启动容器实例**
+
+**docker run -td -p 8866:80 -v /data:/var/www/html --name=web1 centos7:php**
+
+忘记截图了
+
+**4.验证**
+
+在容器中验证
+
+![1](../image1/51.png)
+
+用浏览器验证
+
+![1](../image1/52.png)
+
+##### （3）wordpress
+
+**只是基于apche、php的wordpress**
+
+**首先我先把上次下载的wordpress安装包latest.tar.gz放在Dockerfile同一目录下**
+
+**1.构建Dockerfile**
+
+**FROM  centos7:php**                    
+**RUN yum install rsync -y**
+**COPY latest.tar.gz /**
+**RUN  tar xzvf latest.tar.gz**
+**RUN rsync -avP /wordpress/ /var/www/html/**
+**RUN mkdir /var/www/html/wp-content/uploads**
+**RUN chown -R apache:apache /var/www/html/***
+**#暴露端口**
+**EXPOSE  80**      
+
+![1](../image1/53.png)                                                                                                                             
+
+**2.生成docker镜像**
+
+**docker build -t centos:wordpress .** 
+
+![1](../image1/56.png)
+
+![1](../image1/55.png)
+
+**3.启动容器实例**
+
+![1](../image1/54.png)
+
+**4.验证**
+
+![1](../image1/57.png)
+
+由于无法连接到数据库所以只能显示这个样子，点击continue无法继续
+
+
+
+##### （4）MySQL
+
+**我的mysql安装用from后无法也无法弄到最后使wordpress使用上数据库，因为无法使用mysql无法连接到上面一个个from的最终容器中，所以这边单独做一个在一个容器里装了个mysql的dockerfile，基于php的容器上，一半的分数也不能不要嘛**
+
+**1.构建Dockerfile**
+
+![1](../image1/58.png)
+
+**2.生成docker镜像**
+
+![1](../image1/59.png)
+
+![1](../image1/60.png)
+
+**3.启动容器实例并进入容器验证**
+
+**docker run -td -p 1234:80 -v /data:/var/www/html --name=web3 centos:mysql**
+
+![1](../image1/61.png)
 
